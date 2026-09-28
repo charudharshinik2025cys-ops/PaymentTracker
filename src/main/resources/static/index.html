@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#152a27">
+  <title>EscrowLite | Milestone payments</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="/" aria-label="EscrowLite home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span>escrow<span class="brand-light">lite</span></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <a class="nav-item active" href="#overview" aria-current="page"><span class="nav-icon">◫</span>Overview</a>
+        <a class="nav-item" href="#milestones"><span class="nav-icon">◷</span>Milestones<span class="nav-count" id="nav-count">0</span></a>
+        <a class="nav-item" href="#projects"><span class="nav-icon">▤</span>Projects</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="secure-note"><span class="secure-icon">◇</span><div><strong>Funds protected</strong><small>Payments stay in escrow until approval.</small></div></div>
+        <div class="profile"><div class="avatar">JL</div><div class="profile-copy"><strong>Jordan Lee</strong><small>Workspace owner</small></div><button class="more-button" aria-label="Profile menu">···</button></div>
+      </div>
+    </aside>
+
+    <main class="main-content" id="overview">
+      <header class="topbar">
+        <div class="breadcrumb">Workspace <span>/</span> <strong>Overview</strong></div>
+        <div class="topbar-actions"><span class="sync-label"><i></i> All changes saved</span><button class="help-button" title="Help and support" aria-label="Help and support">?</button></div>
+      </header>
+
+      <section class="page-heading">
+        <div><p class="eyebrow">MONDAY, YOUR WORK AT A GLANCE</p><h1>Good morning, Jordan<span>.</span></h1><p class="heading-copy">A clear view of what’s funded, moving, and ready to release.</p></div>
+        <div class="heading-actions"><span class="date-chip" id="today-date"></span><button class="button button-dark" id="refresh-button"><span aria-hidden="true">↻</span> Refresh</button></div>
+      </section>
+
+      <section class="metrics" aria-label="Escrow summary">
+        <article class="metric metric-green"><div class="metric-top"><span>Held in escrow</span><span class="metric-icon">◈</span></div><strong id="escrow-total">$0</strong><small>Across active projects</small></article>
+        <article class="metric metric-white"><div class="metric-top"><span>Released to date</span><span class="metric-icon icon-coral">↗</span></div><strong id="released-total">$0</strong><small>Payments completed</small></article>
+        <article class="metric metric-white"><div class="metric-top"><span>Needs your review</span><span class="metric-icon icon-gold">◷</span></div><strong id="review-total">0</strong><small>Submitted milestones</small></article>
+        <article class="metric metric-white"><div class="metric-top"><span>Active projects</span><span class="metric-icon icon-blue">▤</span></div><strong id="project-total">0</strong><small>With work in progress</small></article>
+      </section>
+
+      <section class="content-grid">
+        <div class="milestone-panel" id="milestones">
+          <div class="section-heading">
+            <div><p class="eyebrow">KEEP THINGS MOVING</p><h2>Milestone queue</h2></div>
+            <button class="text-button" id="all-milestones">View all <span>→</span></button>
+          </div>
+          <div class="filter-bar" role="group" aria-label="Filter milestones">
+            <button class="filter active" data-filter="ALL">All <span id="filter-all">0</span></button>
+            <button class="filter" data-filter="SUBMITTED">Needs review <span id="filter-review">0</span></button>
+            <button class="filter" data-filter="IN_PROGRESS">In progress</button>
+            <button class="filter" data-filter="APPROVED">Ready to release</button>
+          </div>
+          <div class="milestone-list" id="milestone-list" aria-live="polite"><div class="loading-state">Loading your milestones…</div></div>
+          <div class="empty-state" id="empty-state" hidden><span>✓</span><strong>You're all caught up</strong><p>New milestone activity will show up here.</p></div>
+        </div>
+
+        <aside class="right-column">
+          <section class="projects-panel" id="projects">
+            <div class="section-heading compact-heading"><div><p class="eyebrow">YOUR PORTFOLIO</p><h2>Projects</h2></div><span class="project-number" id="project-number">00</span></div>
+            <div class="project-list" id="project-list"><div class="loading-state">Loading projects…</div></div>
+          </section>
+          <section class="activity-panel">
+            <div class="section-heading compact-heading"><div><p class="eyebrow">THE LATEST</p><h2>Activity</h2></div><span class="activity-spark">✳</span></div>
+            <div class="activity-list" id="activity-list"></div>
+          </section>
+          <div class="escrow-callout"><span class="callout-symbol">✳</span><div><strong>Built around trust.</strong><p>Every release is tied to an approved milestone. Your project funds stay accounted for from start to finish.</p></div></div>
+        </aside>
+      </section>
+      <footer class="page-footer"><span>EscrowLite <span class="footer-dot">·</span> Milestone payment tracking</span><span id="updated-at">Secure workspace</span></footer>
+    </main>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </div>
+</body>
+</html>
